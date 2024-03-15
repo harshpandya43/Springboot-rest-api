@@ -1,9 +1,7 @@
 package com.harshpandya.springbootrestapi.controller;
 
 import com.harshpandya.springbootrestapi.bean.Student;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,5 +31,13 @@ public class StudentController {
                                        @PathVariable("firstName") String firstName,
                                        @PathVariable("lastName") String lastName) {
         return new Student(studentId, firstName, lastName);
+    }
+
+    //    Spring boot REST API with Request Param
+    @GetMapping("students/query")
+    public Student studentRequestVariable(@RequestParam int id,
+                                          @RequestParam String firstName,
+                                          @RequestParam String lastName) {
+        return new Student(id, firstName, lastName);
     }
 }
