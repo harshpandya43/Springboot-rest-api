@@ -1,6 +1,7 @@
 package com.harshpandya.springbootrestapi.controller;
 
 import com.harshpandya.springbootrestapi.bean.Student;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class StudentController {
     }
 
     @PostMapping("students/create")
+    @ResponseStatus(HttpStatus.CREATED)
     public Student createStudent(@RequestBody Student student) {
         System.out.println(student.getId());
         System.out.println(student.getFirstName());
