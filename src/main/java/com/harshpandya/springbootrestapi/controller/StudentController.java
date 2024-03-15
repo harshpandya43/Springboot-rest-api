@@ -40,4 +40,13 @@ public class StudentController {
                                           @RequestParam String lastName) {
         return new Student(id, firstName, lastName);
     }
+
+    @PostMapping("students/create")
+    public Student createStudent(@RequestBody Student student) {
+        System.out.println(student.getId());
+        System.out.println(student.getFirstName());
+        System.out.println(student.getLastName());
+
+        return student;
+    }
 }
