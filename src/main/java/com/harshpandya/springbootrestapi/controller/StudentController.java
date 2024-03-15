@@ -51,4 +51,19 @@ public class StudentController {
 
         return student;
     }
+
+    @PutMapping("student/{id}/update")
+    @ResponseStatus(HttpStatus.OK)
+    public Student updateStudent(@RequestBody Student student,
+                                 @PathVariable("id") int studentId) {
+        System.out.println(student.getFirstName());
+        System.out.println(student.getLastName());
+
+        return student;
+    }
+
+    @DeleteMapping("student/{id}/delete")
+    public String deleteStudent(@PathVariable("id") int studentId) {
+        return "Student deleted successfully";
+    }
 }
